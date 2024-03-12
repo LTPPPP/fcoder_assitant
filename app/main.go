@@ -8,37 +8,25 @@ import (
 	"os/signal"
 	"syscall"
 
-	"fcoder_assitant/config"
 	"fcoder_assitant/handlers"
-	"fcoder_assitant/scheduler"
 	"fcoder_assitant/website"
 
 	"github.com/bwmarrin/discordgo"
+	"github.com/joho/godotenv"
 )
 
 func main() {
-	config, err := config.Load()
-	if err != nil {
-		fmt.Println("Error loading config:", err)
-		return
-	}
-
-	dg, err := discordgo.New("Bot " + config.Token)
+	godotenv.Load()
+	dg, err := discordgo.New("Bot " + os.Getenv("DISCORD_BOT_TOKEN"))
 	if err != nil {
 		fmt.Println("Error creating Discord session:", err)
 		return
 	}
 
-	// Initialize and start scheduler
-	scheduler.Start(dg, config)
-
-	// Initialize and register message handler
-	dg.AddHandler(func(s *discordgo.Session, m *discordgo.MessageCreate) {
-		handlers.MessageCreate(s, m, config)
-	})
+	handlers.StartHandle(dg)
 
 	// Start the web server
-	go website.StartWebServer(dg, config)
+	go website.StartWebServer(dg)
 
 	err = dg.Open()
 	if err != nil {
