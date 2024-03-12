@@ -1,2 +1,2 @@
-app/config/config.json
 app/dev/open-browser
+app/.env
