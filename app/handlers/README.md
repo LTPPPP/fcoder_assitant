@@ -9,7 +9,8 @@ Handlers within a package are responsible for processing incoming events or comm
 ### Package Structure
 
 - `handlers/`: Directory containing handler functions.
-  - `handler.go`: File containing handler functions.
+  - `handlers.go`: File containing handler functions.
+  - `<your handle name>.go`: Your handler function.
   - `README.md`: Documentation for handlers.
 
 ## Handler Template
@@ -17,8 +18,8 @@ Handlers within a package are responsible for processing incoming events or comm
 The following is a template for creating handlers within the package:
 
 ```go
+// <your handle name>.go
 package handlers
-
 import (
 	"fmt"
 	"os"
@@ -39,3 +40,23 @@ func (ms *DiscordMessageHandler) Setup(s *discordgo.Session) {
 		// Logic for handling events or commands
 	})
 }
+```
+```go
+// handlers.go
+package handlers
+import (
+	"github.com/bwmarrin/discordgo"
+)
+
+func StartHandle(s *discordgo.Session) {
+	// List of handlers
+	Help().Setup(s)
+	
+	// Call your handle here
+	NewHandlerName.Setup(s)
+	
+
+	// ...
+}
+
+```
