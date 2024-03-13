@@ -28,8 +28,8 @@ import (
 )
 
 // NewHandlerName creates a new handler with default settings.
-func NewHandlerName() *DiscordMessageHandler {
-	return &handler
+func NewHandlerName() *Config() {
+	return BotConfig()
 }
 
 // Setup configures the handler with a Discord session.
