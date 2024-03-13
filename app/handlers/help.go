@@ -2,21 +2,18 @@ package handlers
 
 import (
 	"fmt"
-	"os"
 	"strings"
 
 	"github.com/bwmarrin/discordgo"
 )
 
 // NewMessageHandler tạo một MessageHandler mới với các thiết lập mặc định.
-func Help() *DiscordMessageHandler {
-	return &DiscordMessageHandler{
-		Prefix: os.Getenv("DISCORD_BOT_PREFIX"),
-	}
+func Help() *Config {
+	return BotConfig()
 }
 
 // Setup thiết lập MessageHandler với một phiên Discord.
-func (ms *DiscordMessageHandler) Setup(s *discordgo.Session) {
+func (ms *Config) Setup(s *discordgo.Session) {
 	// Đăng ký một event handler để xử lý lệnh !help
 	s.AddHandler(func(s *discordgo.Session, m *discordgo.MessageCreate) {
 		// Kiểm tra xem tin nhắn có bắt đầu bằng tiền tố của MessageHandler không
