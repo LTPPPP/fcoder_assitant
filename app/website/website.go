@@ -3,7 +3,7 @@
 package website
 
 import (
-	"fcoder_assitant/config"
+	// "fcoder_assitant/config"
 	"fmt"
 	"net/http"
 
@@ -12,7 +12,7 @@ import (
 )
 
 // StartWebServer starts the web server
-func StartWebServer(dg *discordgo.Session, config config.Config) {
+func StartWebServer(dg *discordgo.Session) {
 	router := mux.NewRouter()
 
 	router.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
