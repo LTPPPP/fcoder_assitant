@@ -4,13 +4,14 @@ fcoder_assitant the purpose of member management. Replace the manual method. Sav
 
 ## Table of Contents
 
-- [Features](#features)
-- [Project Structure](#project-structure)
-- [Prerequisites](#prerequisites)
-- [Getting Started](#getting-started)
-- [Configuration](#configuration)
-- [Contributing](#contributing)
-- [License](#license)
+- [fcoder\_assitant](#fcoder_assitant)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Project Structure](#project-structure)
+  - [Prerequisites](#prerequisites)
+  - [Getting Started](#getting-started)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 ## Features
 
@@ -62,4 +63,4 @@ Replace `"YOUR_DISCORD_BOT_TOKEN"` with your actual bot token.
 Contributions are welcome! If you find any issues or have suggestions for improvements, feel free to open an issue or create a pull request.
 
 ## License
-This project is licensed under the Fcoder License.
+This project is licensed under the FPT License.
